@@ -1,6 +1,5 @@
 numpy
-pandas 
-Flask 
+pandas
+Flask
 matplotlib
 scikit-learn
--e .
