@@ -5,8 +5,9 @@ from src.exception import CustomException
 from src.loging import logging
 from dataclasses import dataclass
 import pandas as pd
-
+from src.components.data_transformation import DataTransformer
 ## Intitialize the Data Ingetion Configuration
+
 @dataclass
 class DataIngetionConfig:
     raw_data_path:str = os.path.join('artifacts','raw_data.csv')
@@ -45,7 +46,10 @@ class DataIngetion :
     except Exception as e :
         logging.info("Error is occuring")
         raise CustomException(e,sys)
-        
-o = DataIngetion()
-o.data_ingetion_intiate()
+if __name__ =="__main__"  :   
+    o = DataIngetion()
+    train_data_path, test_data_path = o.data_ingetion_intiate()
+    object_data_transformation = DataTransformer()
+    train_arr, test_arr, _ = object_data_transformation.intiate_data_transformation(train_data_path, test_data_path)
+
 
