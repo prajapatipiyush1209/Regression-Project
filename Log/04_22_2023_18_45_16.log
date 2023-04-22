@@ -1,0 +1,5 @@
+[ 2023-04-22 18:45:16,781 ] 22 root - INFO - Start Exceution of the code
+[ 2023-04-22 18:45:17,169 ] 26 root - INFO - Start data Ingetion
+[ 2023-04-22 18:45:18,245 ] 31 root - INFO - Complete store the raw data
+[ 2023-04-22 18:45:18,274 ] 36 root - INFO - Train split completed
+[ 2023-04-22 18:45:19,417 ] 41 root - INFO - complete the Data Ingetion

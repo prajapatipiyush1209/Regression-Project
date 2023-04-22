@@ -1,5 +1,5 @@
 import sys 
-from loging import logging
+from src.loging import logging
 
 
 
@@ -21,6 +21,7 @@ class CustomException(Exception):#Inherit the Exception class
 
 logging.info('Start Exceution of the code')
 
+'''
 try :
     a=8
     b=8/0
@@ -28,3 +29,4 @@ except Exception as e:
     logging.info('Error Is occured')
     #Here Call to the Custom Exception class by using raise keyword
     raise CustomException(e,sys)
+    '''

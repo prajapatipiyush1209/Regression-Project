@@ -7,7 +7,7 @@ RegressionProject.egg-info/requires.txt
 RegressionProject.egg-info/top_level.txt
 src/__init__.py
 src/exception.py
-src/logging.py
+src/loging.py
 src/utils.py
 src/components/__init__.py
 src/components/data_ingetion.py
