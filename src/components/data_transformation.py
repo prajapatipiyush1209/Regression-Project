@@ -72,26 +72,26 @@ class DataTransformer:
                 logging.info(f'Test Dataframe Head  : \n{test_df.head().to_string()}')
 
                 #Now divide the data into the X_train, X_test and y_train, y_test 
-                X_train = train_df.drop(labels=['id','price'], axis = 1)
-                X_test = test_df.drop(labels=['id', 'price'], axis=1)
+                input_feature_train_data = train_df.drop(labels=['id','price'], axis = 1)
+                input_feature_test_data = test_df.drop(labels=['id', 'price'], axis=1)
                   
-                y_train = train_df['price']
-                y_test = test_df['price']
-                logging.info(X_train.shape)
-                logging.info(X_test.shape)
-                logging.info("Created X_tRAIN, X_test, y_train, y_test data")
+                target_feature_train_data = train_df['price']
+                targt_feature_test_data = test_df['price']
+                logging.info(input_feature_train_data.shape)
+                logging.info(input_feature_test_data.shape)
+                logging.info("Created input_feature_data and target_feature_data")
 
                 
                 logging.info("call the preprocessor object for performing the fit_transform method")
                 preprocessor = self.get_transforation_object()
                 #Now transforming the using preprocessor object
-                X_train = preprocessor.fit_transform(X_train)
-                X_test = preprocessor.transform(X_test)
+                input_feature_train_data = preprocessor.fit_transform(input_feature_train_data)
+                input_feature_test_data = preprocessor.transform(input_feature_test_data)
                 logging.info("Applying preprocessing object on training and testing datasets.")
                 
                 
-                train_arr = np.c_[X_train, np.array(y_train)]
-                test_arr = np.c_[X_test, np.array(y_test)]
+                train_arr = np.c_[input_feature_train_data, np.array(target_feature_train_data)]
+                test_arr = np.c_[input_feature_test_data, np.array(targt_feature_test_data)]
 
                 return (train_arr, test_arr,self.data_transformation_config.preprocessor_obj_file_path)
             
