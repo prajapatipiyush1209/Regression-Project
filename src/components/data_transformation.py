@@ -9,6 +9,7 @@ from dataclasses import dataclass
 import os
 from src.loging import logging
 from src.exception import CustomException
+from src.utils import save_object
 
 #create data transformerconfig
 @dataclass
@@ -71,6 +72,7 @@ class DataTransformer:
                 logging.info(f'Train Dataframe Head : \n{train_df.head().to_string()}')
                 logging.info(f'Test Dataframe Head  : \n{test_df.head().to_string()}')
 
+
                 #Now divide the data into the X_train, X_test and y_train, y_test 
                 input_feature_train_data = train_df.drop(labels=['id','price'], axis = 1)
                 input_feature_test_data = test_df.drop(labels=['id', 'price'], axis=1)
@@ -92,6 +94,8 @@ class DataTransformer:
                 
                 train_arr = np.c_[input_feature_train_data, np.array(target_feature_train_data)]
                 test_arr = np.c_[input_feature_test_data, np.array(targt_feature_test_data)]
+                
+                save_object(file_path=self.data_transformation_config.preprocessor_obj_file_path,obj=preprocessor)
 
                 return (train_arr, test_arr,self.data_transformation_config.preprocessor_obj_file_path)
             

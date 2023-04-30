@@ -1,6 +1,23 @@
 from src.loging import logging
 from sklearn.metrics import mean_absolute_error, mean_squared_error,r2_score
 import numpy as np
+from src.exception import CustomException
+import pickle
+import os
+import sys
+
+def save_object(file_path, obj):
+    try:
+        dir_path = os.path.dirname(file_path)
+
+        os.makedirs(dir_path, exist_ok=True)
+
+        with open(file_path, "wb") as file_obj:
+            pickle.dump(obj, file_obj)
+
+    except Exception as e:
+        raise CustomException(e, sys)
+
 def evalute_model(X_train, y_train, X_test, y_test,models):
     report = {}
     for i in range(len(models)):

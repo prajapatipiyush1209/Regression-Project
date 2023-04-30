@@ -26,8 +26,12 @@ class DataIngetion :
         def data_ingetion_intiate(self):
             logging.info("Start data Ingetion")
 
+            #Read the dta from the csv
             data = pd.read_csv(os.path.join('notebooks/Data', 'gemstone.csv'))
+            #it's create the directory by using of the raw_data_path
             os.makedirs(os.path.dirname(self.data_ingetion_config.raw_data_path),exist_ok=True)
+
+            #Noe save the data to path that point by the raw_data_pat
             data.to_csv(self.data_ingetion_config.raw_data_path, index=False)
             logging.info("Complete store the raw data")
             
@@ -43,13 +47,7 @@ class DataIngetion :
 
             return (self.data_ingetion_config.train_data_path,self.data_ingetion_config.test_data_path)
     
+    #If any exception is occured then handle 
     except Exception as e :
         logging.info("Error is occuring")
         raise CustomException(e,sys)
-if __name__ =="__main__"  :   
-    o = DataIngetion()
-    train_data_path, test_data_path = o.data_ingetion_intiate()
-    object_data_transformation = DataTransformer()
-    train_arr, test_arr, _ = object_data_transformation.intiate_data_transformation(train_data_path, test_data_path)
-
-
