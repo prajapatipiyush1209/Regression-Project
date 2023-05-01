@@ -41,7 +41,7 @@ class model_train :
             #call to the utils file for the model evalution
             model_report:dict= evalute_model(X_train, y_train, X_test, y_test,models)
             logging.info("Done Model Trained")
-           
+        
             print(model_report)
             logging.info(f'Model Report : {model_report}')
             
@@ -68,18 +68,12 @@ class model_train :
                  file_path=self.model_train_config.model_train_file_path,
                  obj=best_model_name
             )
+           
 
         except Exception as e :
             logging.info("Error is occured in the model_trainer")
             raise CustomException(e,sys)
 
-if __name__ =="__main__"  :   
-    o = DataIngetion()
-    train_data_path, test_data_path = o.data_ingetion_intiate()
-    object_data_transformation = DataTransformer()
-    train_arr, test_arr, _ = object_data_transformation.intiate_data_transformation(train_data_path, test_data_path)
-    object_model_train = model_train()
-    object_model_train.intate_model_train(train_arr, test_arr)
 
 
 

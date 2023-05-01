@@ -1,0 +1,8 @@
+[ 2023-05-02 00:51:27,873 ] 22 root - INFO - Start Exceution of the code
+[ 2023-05-02 00:51:27,884 ] 186 werkzeug - WARNING -  * Debugger is active!
+[ 2023-05-02 00:51:27,891 ] 186 werkzeug - INFO -  * Debugger PIN: 452-801-148
+[ 2023-05-02 00:51:48,059 ] 186 werkzeug - INFO - 127.0.0.1 - - [02/May/2023 00:51:48] "GET / HTTP/1.1" 200 -
+[ 2023-05-02 00:51:48,164 ] 186 werkzeug - INFO - 127.0.0.1 - - [02/May/2023 00:51:48] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[ 2023-05-02 00:51:49,923 ] 186 werkzeug - INFO - 127.0.0.1 - - [02/May/2023 00:51:49] "GET /index HTTP/1.1" 200 -
+[ 2023-05-02 00:52:09,343 ] 68 root - INFO - Dataframe Gathered
+[ 2023-05-02 00:52:09,466 ] 186 werkzeug - INFO - 127.0.0.1 - - [02/May/2023 00:52:09] "POST /predict HTTP/1.1" 200 -
